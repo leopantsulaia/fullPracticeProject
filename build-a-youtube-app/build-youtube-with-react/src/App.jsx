@@ -21,9 +21,27 @@ function App() {
   return (
     <>
       {/* Navbar */}
+      <Navbar />
       {/* Sidebar */}
+      <Sidebar />
       {/* MobileNavbar */}
-      <Container>{/* Routes */}</Container>
+      <MobileNavbar />
+      <Container>
+        {/* Routes */}
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/watch/:id" element={<WatchVideo />} />
+          <Route path="/channel/:id" element={<Channel />} />
+          <Route path="/results/:searchQuery" element={<SearchResults />} />
+          <Route path="/feed/trending" element={<Trending />} />
+          <Route path="/feed/subscriptions" element={<Subscriptions />} />
+          <Route path="/feed/library" element={<Library />} />
+          <Route path="/feed/history" element={<History />} />
+          <Route path="/feed/my_videos" element={<MyVideos />} />
+          <Route path="/feed/trending" element={<Trending />} />
+        </Routes>
+      </Container>
     </>
   );
 }
