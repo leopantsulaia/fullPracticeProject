@@ -1,4 +1,4 @@
-import React from "react";
+import React, { use } from "react";
 import { Route, Routes } from "react-router-dom";
 import MobileNavbar from "./components/MobileNavbar";
 import Navbar from "./components/Navbar";
@@ -18,17 +18,22 @@ import WatchVideo from "./pages/WatchVideo";
 import Container from "./styles/Container";
 
 function App() {
+  const { isSidebarOpen, setIsSidebarOpen } = React.useState(false);
+  useLocationChange(handleCloseSidebar)
+
+  function handleCloseSidebar() {
+    setIsSidebarOpen(false);
+  }
+  function handleToggleSidebar() {
+    setIsSidebarOpen(!isSidebarOpen);
+  }
+
   return (
     <>
-      {/* Navbar */}
-      <Navbar />
-      {/* Sidebar */}
-      <Sidebar />
-      {/* MobileNavbar */}
+      <Navbar handleToggleSidebar={handleToggleSidebar} />
+      <Sidebar isSidebarOpen={isSidebarOpen} />
       <MobileNavbar />
       <Container>
-        {/* Routes */}
-
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/watch/:id" element={<WatchVideo />} />

@@ -7,7 +7,7 @@ import Search from "./Search";
 import UploadVideo from "./UploadVideo";
 import UserDropdown from "./UserDropdown";
 
-function Navbar() {
+function Navbar({handleToggleSidebar}) {
   return (
     <Wrapper>
       <div className="logo flex-row">
