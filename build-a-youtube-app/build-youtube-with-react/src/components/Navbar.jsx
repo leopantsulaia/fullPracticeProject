@@ -29,7 +29,10 @@ function Navbar({handleToggleSidebar}) {
       <ul>
         <li></li>
         <li></li>
-        <li></li>
+        <li>
+
+           <GoogleAuth />
+        </li>
       </ul>
     </Wrapper>
   );

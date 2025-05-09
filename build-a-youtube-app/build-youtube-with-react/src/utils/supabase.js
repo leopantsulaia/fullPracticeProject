@@ -1,12 +1,16 @@
 import { createClient } from "@supabase/supabase-js";
-import { queryClient } from "../components/AppProviders";
+// import { queryClient } from "../components/AppProviders";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
-export function signInWithGoogle() {}
+export function signInWithGoogle() {
+  supabase.auth.signInWithOAuth({
+    provider: "google",
+  });
+}
 
 export function signOut() {}
 

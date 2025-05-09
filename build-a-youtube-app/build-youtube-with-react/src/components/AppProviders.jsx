@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import {  ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { ErrorBoundary } from "react-error-boundary";
 import { Toaster } from "react-hot-toast";
 import { BrowserRouter } from "react-router-dom";
@@ -12,10 +12,12 @@ import ErrorFallback from "./ErrorFallback";
 function AppProviders(children) {
   return (
     <BrowserRouter>
-      <ThemeProvider theme={darkTheme}>
-        <GlobalStyle />
-        {children}
-      </ThemeProvider>
+      <AuthProvider>
+        <ThemeProvider theme={darkTheme}>
+          <GlobalStyle />
+          {children}
+        </ThemeProvider>
+      </AuthProvider>
     </BrowserRouter>
   );
 }
